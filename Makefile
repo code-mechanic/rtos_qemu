@@ -1,10 +1,22 @@
 include config/docker_config.mk
 
+TOOLCHAIN_PREFIX ?= riscv64-unknown-elf-
+
+OBJCOPY           = $(TOOLCHAIN_PREFIX)objcopy
+LD                = $(TOOLCHAIN_PREFIX)ld
+AS                = $(TOOLCHAIN_PREFIX)as
+GCC               = $(TOOLCHAIN_PREFIX)gcc
+
 # Help message
 .PHONY: help
 help:
-	@echo Help message
+	@echo "\e[36mdocker_build\e[0m" - Build the docker image
+	@echo "\e[36mdocker_start\e[0m" - Start the docker container
+	@echo "\e[36mdocker_stop \e[0m" - Stop the docker container
+	@echo "\e[36mdocker_check\e[0m" - Check docker image and container
+	@echo "\e[36mdocker_prune\e[0m" - Remove unwanted docker usage
 
+#=============================== Docker Commands ===============================
 # Build the Docker image
 .PHONY: docker_build
 docker_build:
@@ -34,3 +46,10 @@ docker_check:
 	@docker image ls
 	@echo "\e[36mCONTAINER LIST:\e[0m"
 	@docker container ls
+	@echo "\e[36mDISK USAGE:\e[0m"
+	@docker system df
+
+# Remove unwanted docker usage
+.PHONY: docker_prune
+docker_prune:
+	@docker system prune -a -f
