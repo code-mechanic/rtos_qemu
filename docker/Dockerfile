@@ -20,6 +20,7 @@ RUN apt-get install --no-install-recommends -y \
   less \
   build-essential \
   python3 \
+  python3-pip \
   python3-dev \
   binutils \
   make \
@@ -29,6 +30,10 @@ RUN apt-get install --no-install-recommends -y \
   xxd \
   strace \
   man
+
+# gdb dashboard install
+RUN wget -P ~ https://github.com/cyrus-and/gdb-dashboard/raw/master/.gdbinit
+RUN pip3 install pygments
 
 # terminal colors with xterm
 ENV TERM xterm
