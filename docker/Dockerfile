@@ -23,13 +23,14 @@ RUN apt-get install --no-install-recommends -y \
   python3-pip \
   python3-dev \
   binutils \
-  make \
   binutils-riscv64-linux-gnu \
   qemu-system-riscv32 \
   zsh \
   xxd \
   strace \
-  man
+  man \
+  qemu-system-arm \
+  gcc-arm-none-eabi
 
 # gdb dashboard install
 RUN wget -P ~ https://github.com/cyrus-and/gdb-dashboard/raw/master/.gdbinit

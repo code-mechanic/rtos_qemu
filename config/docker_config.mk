@@ -1,8 +1,9 @@
-DOCKER_IMG        := ghcr.io/code-mechanic/risc_v_qemu
+REPO_NAME         := rtos_qemu
+DOCKER_IMG        := ghcr.io/code-mechanic/$(REPO_NAME)
 DOCKER_VERSION    := latest
 DOCKER_PATH       := $(DOCKER_IMG):$(DOCKER_VERSION)
-CONTAINER         := risc_v_qemu_container
-ROOT_DIR          := /home/risc_v_qemu
+CONTAINER         := $(REPO_NAME)_container
+ROOT_DIR          := /home/$(REPO_NAME)
 QUIET             := >/dev/null 2>&1
 
 # Run commands in the local docker container if not in said container
