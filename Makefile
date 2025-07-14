@@ -53,3 +53,8 @@ docker_check:
 .PHONY: docker_prune
 docker_prune:
 	@docker system prune -a -f
+
+# Make gdb more insight
+.PHONY: gdb_dashboard
+gdb_dashboard:
+	wget -P ~ https://github.com/cyrus-and/gdb-dashboard/raw/master/.gdbinit

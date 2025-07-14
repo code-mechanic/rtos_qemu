@@ -1,1 +1,2 @@
-info all-registers - List all the CPU registers
+1. info all-registers - List all the CPU registers
+2. ni - Execute next instruction
